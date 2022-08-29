@@ -203,9 +203,10 @@ mod tests {
     #[test]
     fn test_get_grades() {
         dotenv::dotenv().ok();  // load env from .env file
-        let uid = std::env::var("UID").expect("environment variable UID not set");
-        let pwd = std::env::var("PWD").expect("environment variable PWD not set");
+        let uid = std::env::var("USER_ID").expect("environment variable UID not set");
+        let pwd = std::env::var("HAHAHAH").expect("environment variable PWD not set");
 
+        println!("{}", uid.as_str());
         let mut grade = Grade::new();
         grade.fdu.login(uid.as_str(), pwd.as_str()).unwrap();
 
@@ -219,9 +220,10 @@ mod tests {
     #[test]
     fn test_get_gpa() {
         dotenv::dotenv().ok();  // load env from .env file
-        let uid = std::env::var("UID").expect("environment variable UID not set");
-        let pwd = std::env::var("PWD").expect("environment variable PWD not set");
+        let uid = std::env::var("USER_ID").expect("environment variable UID not set");
+        let pwd = std::env::var("HAHAHAH").expect("environment variable PWD not set");
 
+        println!("{}", uid.as_str());
         let mut grade = Grade::new();
         grade.fdu.login(uid.as_str(), pwd.as_str()).unwrap();
 

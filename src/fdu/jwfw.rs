@@ -143,8 +143,8 @@ mod tests {
     #[test]
     fn test_jwfw() {
         dotenv::dotenv().ok();  // load env from .env file
-        let uid = std::env::var("UID").expect("environment variable UID not set");
-        let pwd = std::env::var("PWD").expect("environment variable PWD not set");
+        let uid = std::env::var("USER_ID").expect("environment variable UID not set");
+        let pwd = std::env::var("HAHAHAH").expect("environment variable PWD not set");
 
         let mut fd = Fdu::new();
         fd.login(uid.as_str(), pwd.as_str()).expect("login error");

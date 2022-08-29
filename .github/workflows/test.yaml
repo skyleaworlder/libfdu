@@ -15,7 +15,12 @@ jobs:
         name: clone code
         uses: actions/checkout@v2
       -
-        name: rust env
+        name: prepare env
+        env:
+          SECRETS_UID_PWD: ${{ secrets.UID_PWD }}
+        run: echo $SECRETS_UID_PWD | base64 -d > .env
+      -
+        name: install rust
         uses: actions-rs/toolchain@v1
         with:
           profile: minimal
@@ -23,4 +28,6 @@ jobs:
           override: true
       -
         name: run test
-        run: cargo test
+        env:
+          RUST_BACKTRACE: 1
+        run: cargo test -- --test-threads=1
